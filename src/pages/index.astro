@@ -1,15 +1,95 @@
 ---
+import Header from "../components/Header.astro";
+import Body from "../components/Body.astro";
+import { COLORS } from "../utils/util";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>News Home</title>
+    <style define:vars={COLORS} is:global>
+      /*
+  1. Use a more-intuitive box-sizing model.
+*/
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      /*
+  2. Remove default margin
+*/
+      * {
+        margin: 0;
+      }
+
+      /*
+  3. Allow percentage-based heights in the application
+*/
+      html,
+      body {
+        height: 100%;
+      }
+      /*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+      body {
+        line-height: 1.5;
+        background: var(--offWhite);
+        font-family: "Inter", sans-serif;
+      }
+
+      /*
+  6. Improve media defaults
+*/
+      img,
+      picture,
+      video,
+      canvas,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      /*
+  7. Remove built-in form typography styles
+*/
+      input,
+      button,
+      textarea,
+      select {
+        font: inherit;
+      }
+
+      /*
+  8. Avoid text overflows
+*/
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        overflow-wrap: break-word;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <Body />
+  </body>
 </html>

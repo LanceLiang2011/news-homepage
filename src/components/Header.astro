@@ -1,0 +1,172 @@
+---
+import { COLORS } from "../utils/util";
+import logo from "../images/logo.svg";
+import hamburger from "../images/icon-menu.svg";
+import close from "../images/icon-menu-close.svg";
+---
+
+<style define:vars={COLORS}>
+  header {
+    margin: 28px 16px;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav.main-nav {
+    display: none;
+  }
+
+  nav.main-nav > a {
+    color: var(--darkGrayishBlue);
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  nav.main-nav > a:hover {
+    color: var(--softRed);
+  }
+
+  .hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  aside.overlay {
+    position: fixed;
+    inset: 0;
+    background: hsla(240, 100%, 5%, 0.5);
+    /* display: flex; */
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .modal {
+    width: 75%;
+    height: 100%;
+    background-color: var(--offWhite);
+    display: none;
+  }
+
+  aside.overlay.show-modal {
+    display: flex;
+  }
+
+  aside.overlay.show-modal > .modal {
+    display: block;
+  }
+
+  .x-container {
+    margin: 28px 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .closeBtn {
+    cursor: pointer;
+  }
+
+  nav.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: start;
+    gap: 24px;
+  }
+
+  nav.mobile-nav > a {
+    color: var(--veryDarkBlue);
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  nav.mobile-nav > a:hover {
+    color: var(--softRed);
+  }
+
+  @media (min-width: 860px) {
+    header {
+      margin: 90px auto;
+      margin-bottom: 0;
+    }
+
+    nav.main-nav {
+      display: flex;
+      gap: 40px;
+    }
+    .hamburger {
+      display: none;
+    }
+
+    aside.overlay {
+      display: none;
+    }
+    aside.overlay.show-modal {
+      display: none;
+    }
+
+    aside.overlay.show-modal > .modal {
+      display: none;
+    }
+  }
+</style>
+
+<header>
+  <div class="logo"><img src={logo} alt="logo" /></div>
+  <nav class="main-nav">
+    <a href="/">Home</a>
+    <a href="/">New</a>
+    <a href="/">Popular</a>
+    <a href="/">Trending</a>
+    <a href="/">Categories</a>
+  </nav>
+  <button class="hamburger"
+    ><img
+      src={hamburger}
+      alt="hamburger menu. Click to expand mobile menu"
+    /></button
+  >
+  <aside class="overlay">
+    <div class="modal">
+      <div class="x-container">
+        <img
+          class="closeBtn"
+          src={close}
+          alt="close button. click to close modal"
+        />
+      </div>
+      <nav class="mobile-nav">
+        <a href="/">Home</a>
+        <a href="/">New</a>
+        <a href="/">Popular</a>
+        <a href="/">Trending</a>
+        <a href="/">Categories</a>
+      </nav>
+    </div>
+  </aside>
+</header>
+
+<script>
+  function closeModal(e) {
+    if (e.target === e.currentTarget) {
+      document.querySelector(".overlay").classList.remove("show-modal");
+    }
+  }
+  function openModal() {
+    document.querySelector(".overlay").classList.add("show-modal");
+  }
+
+  const hamburger = document.querySelector(".hamburger");
+  const overlay = document.querySelector(".overlay");
+  const closeBtn = document.querySelector(".closeBtn");
+
+  hamburger.addEventListener("click", openModal);
+  overlay.addEventListener("click", closeModal);
+  closeBtn.addEventListener("click", closeModal);
+</script>

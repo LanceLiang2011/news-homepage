@@ -1,0 +1,280 @@
+---
+import { COLORS } from "../utils/util";
+import web3Mobile from "../images/image-web-3-mobile.jpg";
+import web3Desk from "../images/image-web-3-desktop.jpg";
+
+import retroPc from "../images/image-retro-pcs.jpg";
+import keyboard from "../images/image-top-laptops.jpg";
+import game from "../images/image-gaming-growth.jpg";
+---
+
+<style define:vars={COLORS}>
+  .main-wrapper {
+    display: grid;
+    margin: 28px 16px;
+    gap: 16px;
+    max-width: 1200px;
+  }
+  .main-img {
+    height: 100%;
+    width: 100%;
+  }
+  .web-3-mobile {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+  }
+  .web-3-desk {
+    display: none;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .main-article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    font-weight: 800;
+  }
+  .para {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 24px;
+  }
+  .para p {
+    color: var(--darkGrayishBlue);
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  .para button {
+    border: none;
+    color: var(--offWhite);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 4.4px;
+    font-weight: 700;
+
+    background-color: var(--softRed);
+    padding: 13px 32px;
+  }
+
+  .para button:hover {
+    background-color: var(--veryDarkBlue);
+  }
+
+  .news {
+    background-color: var(--veryDarkBlue);
+    margin-top: 48px;
+    padding: 32px 24px;
+  }
+
+  .new {
+    color: var(--softOrange);
+    font-size: 2rem;
+    margin-bottom: 34px;
+  }
+
+  .news h3 {
+    color: var(--offWhite);
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 24px;
+    margin-bottom: 8px;
+    cursor: pointer;
+  }
+
+  .news h3:hover {
+    color: var(--softOrange);
+  }
+
+  .news p {
+    color: var(--offWhite);
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .hr {
+    border-bottom: 1px solid #5e607a;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .review {
+    display: flex;
+    gap: 24px;
+    padding-right: 24px;
+  }
+
+  .review-text > .num {
+    color: var(--grayishBlue);
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .review-text > h4 {
+    color: var(--veryDarkBlue);
+    font-size: 1.13rem;
+    cursor: pointer;
+  }
+
+  .review-text > h4:hover {
+    color: var(--softRed);
+  }
+
+  .review-text > .content {
+    color: var(--darkGrayishBlue);
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  @media (min-width: 860px) {
+    .main-wrapper {
+      margin: 55px auto;
+      margin-bottom: 0;
+      grid-template-rows: 3fr 2fr 130px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      grid-template-areas:
+        "i i n"
+        "a a n"
+        "r r r";
+    }
+
+    .main-img {
+      grid-area: i;
+    }
+    .web-3-mobile {
+      display: none;
+    }
+    .web-3-desk {
+      display: block;
+    }
+
+    .main-article {
+      grid-area: a;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 30px;
+    }
+    .title {
+      flex: 1;
+      font-size: 3.5rem;
+      font-weight: 800;
+    }
+    .para {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .new {
+      font-size: 2.5rem;
+    }
+
+    .news {
+      margin-top: 0;
+      grid-area: n;
+    }
+
+    .reviews {
+      display: flex;
+      flex-direction: row;
+      grid-area: r;
+    }
+  }
+</style>
+
+<section>
+  <div class="main-wrapper">
+    <!-- Main Image -->
+    <div class="main-img">
+      <img class="web-3-mobile" src={web3Mobile} alt="web3 abstract art" />
+      <img class="web-3-desk" src={web3Desk} alt="web3 abstract art" />
+    </div>
+    <!-- Main article -->
+    <div class="main-article">
+      <h1 class="title">The Bright Future of Web 3.0?</h1>
+      <div class="para">
+        <p>
+          We dive into the next evolution of the web that claims to put the
+          power of the platforms back into the hands of the people. But is it
+          really fulfilling its promise?
+        </p>
+        <button>Read More</button>
+      </div>
+    </div>
+    <!-- News -->
+    <div class="news">
+      <h2 class="new">New</h2>
+      <h3>Hydrogen VS Electric Cars</h3>
+      <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
+      <div class="hr"></div>
+      <h3>The Downsides of AI Artistry</h3>
+      <p>
+        What are the possible adverse effects of on-demand AI image generation?
+      </p>
+      <div class="hr"></div>
+      <h3>Is VC Funding Drying Up?</h3>
+      <p>
+        Private funding by VC firms is down 50% YOY. We take a look at what that
+        means.
+      </p>
+    </div>
+    <!-- Reviews -->
+    <div class="reviews">
+      <div class="review">
+        <div class="review-img">
+          <img src={retroPc} alt="a retro PC" />
+        </div>
+        <div class="review-text">
+          <p class="num">01</p>
+          <h4>Reviving Retro PCs</h4>
+          <p class="content">
+            What happens when old PCs are given modern upgrades?
+          </p>
+        </div>
+      </div>
+
+      <div class="review">
+        <div class="review-img">
+          <img src={keyboard} alt="a laptop keyboard" />
+        </div>
+        <div class="review-text">
+          <p class="num">02</p>
+          <h4>Top 10 Laptops of 2022</h4>
+          <p class="content">Our best picks for various needs and budgets.</p>
+        </div>
+      </div>
+
+      <div class="review">
+        <div class="review-img">
+          <img src={game} alt="a game control in air" />
+        </div>
+        <div class="review-text">
+          <p class="num">03</p>
+          <h4>The Growth of Gaming</h4>
+          <p class="content">
+            How the pandemic has sparked fresh opportunities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
